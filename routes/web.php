@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SeguimientoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::controller(SeguimientoController::class)->group(function() {
+    Route::get('seguimiento', 'index')->name('seguimiento.index');
+    Route::get('seguimiento/create', 'create')->name('seguimiento.create');
+
+    Route::get('seguimiento/{egresado}', 'show')->name('seguimiento.show');
 });
