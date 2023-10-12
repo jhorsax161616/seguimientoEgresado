@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\SeguimientoController;
+use App\Http\Controllers\Egresados\EgresadoController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home')->middleware('auth:sanctum');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth:sanctum');
 
+Route::resource('usuarios', UserController::class)->middleware('auth:sanctum');
+Route::resource('egresados', EgresadoController::class)->middleware('auth:sanctum');
+
 Route::view('nosotros', 'nosotros')->name('nosotros');
-
-Route::controller(SeguimientoController::class)->group(function() {
-    Route::get('egresados', 'index')->name('seguimiento.index');
-    Route::get('egresados/create', 'create')->name('seguimiento.create');
-
-    Route::get('egresados/{egresado}', 'show')->name('seguimiento.show');
-});
