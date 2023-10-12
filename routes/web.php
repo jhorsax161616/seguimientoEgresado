@@ -13,9 +13,10 @@ use App\Http\Controllers\SeguimientoController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Auth::routes();
 
-Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home')->middleware('auth:sanctum');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth:sanctum');
 
 Route::view('nosotros', 'nosotros')->name('nosotros');
 
