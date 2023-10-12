@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('evaluacion_egresados', function (Blueprint $table) {
             $table->id();
 
-            $table->bigInteger('id_empresa')->unsigned();
-            $table->bigInteger('id_formato')->unsigned();
+            $table->unsignedBigInteger('id_empresa');
+            $table->unsignedBigInteger('id_formato');
 
             $table->timestamps();
 
