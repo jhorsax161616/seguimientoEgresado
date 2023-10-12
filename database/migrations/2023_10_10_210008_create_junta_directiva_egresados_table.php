@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('junta_directiva_egresados', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_egresado')->unique();
-            $table->bigInteger('tipo_cargo')->unsigned();
+            $table->unsignedBigInteger('tipo_cargo')->nullable();
             $table->string('periodo', 15);
 
             $table->timestamps();
@@ -28,7 +28,7 @@ return new class extends Migration
             $table->foreign("tipo_Cargo")
             ->references('id')
             ->on('tipo_cargos')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade');
         });
     }

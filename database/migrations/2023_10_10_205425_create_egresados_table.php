@@ -23,14 +23,14 @@ return new class extends Migration
             $table->date('fecha_doctorado');
             $table->string('cargo_empresa', 150);
             $table->string('tiempo_laboral', 30);
-            $table->bigInteger('id_empresa')->unsigned();
+            $table->unsignedBigInteger('id_empresa')->nullable();
 
             $table->timestamps();
 
             $table->foreign("id_empresa")
             ->references('id')
             ->on('empresas')
-            ->onDelete('cascade')
+            ->onDelete('set null')
             ->onUpdate('cascade');
 
         });
