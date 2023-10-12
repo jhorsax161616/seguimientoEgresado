@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('requisitos_egresados', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_egresado')->unsigned();
+            $table->unsignedBigInteger('id_egresado')->unique();
             $table->integer("estado");
             $table->string('solicitud_decano', 200);
             $table->string('recibo', 200);

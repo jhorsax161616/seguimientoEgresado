@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('junta_directiva_egresados', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_egresado')->unsigned();
+            $table->unsignedBigInteger('id_egresado')->unique();
             $table->bigInteger('tipo_cargo')->unsigned();
             $table->string('periodo', 15);
 

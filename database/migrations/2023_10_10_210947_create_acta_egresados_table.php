@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('acta_egresados', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('id_reunion')->unsigned();
+            $table->unsignedBigInteger('id_reunion')->unique();
             $table->bigInteger('id_junta_directiva')->unsigned();
-            $table->bigInteger('id_egresado')->unsigned();
+            $table->unsignedBigInteger('id_egresado')->unique();
             $table->string('resultado', 255);
             $table->string('firma_responsable', 255);
 
