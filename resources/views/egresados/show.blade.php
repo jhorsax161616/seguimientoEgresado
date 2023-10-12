@@ -3,7 +3,7 @@
     
 @section('content_header')
     <h1>Datos del Egresado con código: </h1>
-    <ul class="nav navbar-nav">
+    {{-- <ul class="nav navbar-nav">
         <!-- Otras opciones de menú aquí -->
         <li class="nav-item">
             <a href="{{ route('egresados.edit', $egresado) }}">
@@ -19,7 +19,20 @@
                 </button>
             </form>
         </li>
-    </ul>
+    </ul> --}}
+    <br>
+    <div style="text-align: right;">
+        <a href="{{ route('egresados.edit', $egresado) }}" class="btn btn-dark btn-sm btn-inline">
+            <i class="fa fa-briefcase"></i> Editar
+        </a>
+        <form action="{{ route('egresados.destroy', $egresado) }}" method="post" style="display:inline;">
+            @csrf
+            @method('delete')
+            <button type="submit" class="btn btn-danger btn-sm btn-inline">
+                <i class="fa fa-trash"></i> Eliminar
+            </button>
+        </form>
+    </div>
 @stop
 @section('content')
     <p><strong>Nombre:</strong> {{$egresado->nombre}}</p>
