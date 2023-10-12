@@ -12,7 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('cronograma_egresados', function (Blueprint $table) {
+            
             $table->id();
+            $table->string('numero', 10);
+            $table->string('actividad', 250);
+            $table->datetime('fecha');
+            $table->string('periodo', 15);
+
             $table->timestamps();
         });
     }

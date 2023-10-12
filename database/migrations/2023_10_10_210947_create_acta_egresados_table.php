@@ -13,7 +13,31 @@ return new class extends Migration
     {
         Schema::create('acta_egresados', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_reunion')->unsigned();
+            $table->bigInteger('id_junta_directiva')->unsigned();
+            $table->bigInteger('id_egresado')->unsigned();
+            $table->string('resultado', 255);
+            $table->string('firma_responsable', 255);
+
             $table->timestamps();
+
+            $table->foreign("id_reunion")
+            ->references('id')
+            ->on('reuniones')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign("id_junta_directiva")
+            ->references('id')
+            ->on('junta_directiva_egresados')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign("id_egresado")
+            ->references('id')
+            ->on('egresados')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

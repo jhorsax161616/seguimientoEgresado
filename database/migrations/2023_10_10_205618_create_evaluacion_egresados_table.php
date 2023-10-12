@@ -13,7 +13,23 @@ return new class extends Migration
     {
         Schema::create('evaluacion_egresados', function (Blueprint $table) {
             $table->id();
+
+            $table->bigInteger('id_empresa')->unsigned();
+            $table->bigInteger('id_formato')->unsigned();
+
             $table->timestamps();
+
+            $table->foreign("id_empresa")
+            ->references('id')
+            ->on('empresas')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
+
+            $table->foreign("id_formato")
+            ->references('id')
+            ->on('formatos_tipos_evaluaciones')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

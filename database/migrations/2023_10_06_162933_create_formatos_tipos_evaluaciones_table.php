@@ -12,7 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('formatos_tipos_evaluaciones', function (Blueprint $table) {
+            
             $table->id();
+            $table->string('rubrica', 200);
+            $table->float('resultado', 6, 2);
+            $table->string('periodo', 10);
+
             $table->timestamps();
         });
     }

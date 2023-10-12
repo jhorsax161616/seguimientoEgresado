@@ -13,7 +13,19 @@ return new class extends Migration
     {
         Schema::create('reuniones', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('id_egresado')->unsigned();
+            $table->datetime('fecha');
+            $table->string('lugar', 100);
+            $table->string('agenda', 255);
+            $table->string('objetivo', 255);
+
             $table->timestamps();
+
+            $table->foreign("id_egresado")
+            ->references('id')
+            ->on('egresados')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
         });
     }
 

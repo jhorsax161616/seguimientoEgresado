@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('tipo_cargos', function (Blueprint $table) {
+            
             $table->id();
+            $table->string('descripcion', 250);
+            
             $table->timestamps();
         });
     }
