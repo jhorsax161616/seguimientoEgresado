@@ -8,7 +8,7 @@ class SeguimientoController extends Controller
 {
     // Metodo para la Pagina principal
     public function index() {
-
+        return view('egresados.index');
     }
 
     // Metodo para crear un registro de seguimiento

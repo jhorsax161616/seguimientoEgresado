@@ -14,13 +14,14 @@ use App\Http\Controllers\SeguimientoController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::view('nosotros', 'nosotros')->name('nosotros');
 
 Route::controller(SeguimientoController::class)->group(function() {
-    Route::get('seguimiento', 'index')->name('seguimiento.index');
-    Route::get('seguimiento/create', 'create')->name('seguimiento.create');
+    Route::get('egresados', 'index')->name('seguimiento.index');
+    Route::get('egresados/create', 'create')->name('seguimiento.create');
 
-    Route::get('seguimiento/{egresado}', 'show')->name('seguimiento.show');
+    Route::get('egresados/{egresado}', 'show')->name('seguimiento.show');
 });
