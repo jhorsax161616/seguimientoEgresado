@@ -15,7 +15,7 @@ return new class extends Migration
             
             $table->id();
             $table->string('descripcion', 300);
-            $table->float('porcentaje_avance', 3, 2);
+            $table->float('porcentaje_avance', 5, 2);
 
             $table->timestamps();
         });
