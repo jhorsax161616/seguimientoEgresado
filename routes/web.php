@@ -22,4 +22,4 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('usuarios', UserController::class)->middleware('auth:sanctum');
 Route::resource('egresados', EgresadoController::class)->middleware('auth:sanctum');
 
-Route::view('nosotros', 'nosotros')->name('nosotros');
+Route::get('/gestionegresados', [App\Http\Controllers\Egresados\HomeController::class, 'index'])->name('gestionegresados')->middleware('auth:sanctum');

@@ -329,7 +329,7 @@ return [
                     'submenu' => [
                         [
                             'text' => 'Gestión de Egresados',
-                            'url' => 'egresados',
+                            'url' => 'gestionegresados',
                         ],
                     ],
                 ],

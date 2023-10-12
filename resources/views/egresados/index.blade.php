@@ -2,7 +2,7 @@
 @section('title', 'Gestion de Egresados')
     
 @section('content_header')
-    <h1>Bienvenido a la Getión de Egresados</h1>
+    <h1>Bienvenido a la seccion para administrar egresados</h1>
     <div style="text-align: center;">
         <a href="{{route('egresados.create')}}">Nuevo Egresado</a>
     </div>
@@ -27,4 +27,7 @@
             @endforeach
         </tbody>
     </table>
+@stop
+@section('footer')
+<a href="{{route('gestionegresados', $egresado)}}">Regresar</a>
 @stop
