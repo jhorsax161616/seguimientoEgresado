@@ -25,20 +25,14 @@ class EgresadoController extends Controller
     }
 
     public function store(Request $request) {
-        $egresado = new Egresado();
+        $request->validate([
+            'nombre' => 'required',
+            'grado_instruccion' => 'required',
+            'especializacion' => 'required',
+            'fecha_egreso' => 'required'
+        ]);
 
-        $egresado->nombre = $request->nombre;
-        $egresado->grado_instruccion = $request->grado_instruccion;
-        $egresado->especializacion = $request->especializacion;
-        $egresado->fecha_egreso = $request->fecha_egreso;
-        $egresado->fecha_titulo = $request->fecha_titulo;
-        $egresado->fecha_maestria = $request->fecha_maestria;
-        $egresado->fecha_doctorado = $request->fecha_doctorado;
-        $egresado->cargo_empresa = $request->cargo_empresa;
-        $egresado->tiempo_laboral = $request->tiempo_laboral;
-        $egresado->id_empresa = $request->id_empresa;
-
-        $egresado->save();
+        $egresado = Egresado::create($request->all());
 
         return redirect()->route('egresados.show', $egresado);
     }
@@ -50,18 +44,13 @@ class EgresadoController extends Controller
 
     // Metodo para editar un registro de egresado
     public function update(Request $request, Egresado $egresado) {
-        $egresado->nombre = $request->nombre;
-        $egresado->grado_instruccion = $request->grado_instruccion;
-        $egresado->especializacion = $request->especializacion;
-        $egresado->fecha_egreso = $request->fecha_egreso;
-        $egresado->fecha_titulo = $request->fecha_titulo;
-        $egresado->fecha_maestria = $request->fecha_maestria;
-        $egresado->fecha_doctorado = $request->fecha_doctorado;
-        $egresado->cargo_empresa = $request->cargo_empresa;
-        $egresado->tiempo_laboral = $request->tiempo_laboral;
-        $egresado->id_empresa = $request->id_empresa;
-
-        $egresado->save();
+        $request->validate([
+            'nombre' => 'required',
+            'grado_instruccion' => 'required',
+            'especializacion' => 'required',
+            'fecha_egreso' => 'required'
+        ]);
+        $egresado->update($request->all());
 
         return redirect()->route('egresados.show', $egresado);
     }

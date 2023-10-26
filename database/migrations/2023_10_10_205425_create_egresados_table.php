@@ -18,11 +18,11 @@ return new class extends Migration
             $table->string('grado_instruccion', 200);
             $table->string('especializacion', 200);
             $table->date('fecha_egreso');
-            $table->date('fecha_titulo');
-            $table->date('fecha_maestria');
-            $table->date('fecha_doctorado');
-            $table->string('cargo_empresa', 150);
-            $table->string('tiempo_laboral', 30);
+            $table->date('fecha_titulo')->nullable();
+            $table->date('fecha_maestria')->nullable();
+            $table->date('fecha_doctorado')->nullable();
+            $table->string('cargo_empresa', 150)->nullable();
+            $table->string('tiempo_laboral', 30)->nullable();
             $table->unsignedBigInteger('id_empresa')->nullable();
 
             $table->timestamps();
