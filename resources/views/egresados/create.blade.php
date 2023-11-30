@@ -81,7 +81,7 @@
             <input type="number" class="form-control" name="id_empresa" id="id_empresa" value="{{old('id_empresa')}}">
         </div>
     <!-- Botón para enviar el formulario -->
-    <button type="submit" class="btn btn-info btn-sm btn-inline">Guardar</button>
+    <button id="guardar" type="submit" class="btn btn-info btn-sm btn-inline">Guardar</button>
 </form>
 </div>
 @stop

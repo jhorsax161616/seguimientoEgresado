@@ -6,7 +6,7 @@
 @stop
 @section('content')
 <div style="text-align: right;">
-    <a href="{{route('egresados.create')}}" class="btn btn-dark btn-sm btn-inline">
+    <a id="nuevo_egresado" href="{{route('egresados.create')}}" class="btn btn-dark btn-sm btn-inline">
         <i class="fa fa-briefcase"></i> Nuevo Egresado
     </a>
 </div>

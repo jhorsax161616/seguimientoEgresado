@@ -318,6 +318,7 @@ return [
         [
             'text' => 'Macroprocesos',
             'icon' => 'fas fa-fw fa-share',
+            'id' => 'macroprocesos',
             'submenu' => [
                 [
                     'text' => 'Estratégicos',
@@ -326,10 +327,12 @@ return [
                 [
                     'text' => 'Misionales',
                     'url' => '#',
+                    'id' => 'misionales',
                     'submenu' => [
                         [
                             'text' => 'Gestión de Egresados',
                             'url' => 'gestionegresados',
+                            'id' => 'gestionEgresados',
                         ],
                     ],
                 ],

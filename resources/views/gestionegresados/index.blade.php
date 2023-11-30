@@ -7,7 +7,7 @@
 @section('content')
     <div class="row">
         <div class="col-md-6 mb-3">
-            <a href="{{ route('egresados.index') }}" class="btn btn-info btn-lg btn-block">
+            <a id="gestionar_egresados" href="{{ route('egresados.index') }}" class="btn btn-info btn-lg btn-block">
                 <i class="fa fa-graduation-cap"></i> Gestionar Egresados
             </a>
         </div>
